@@ -1,0 +1,52 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "jest": true
+  },
+  "ignorePatterns": ["**/node_modules/**","webpack.config.js" ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "plugin:prettier/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "react-hooks",
+    "@typescript-eslint",
+    "prettier"
+  ],
+  "rules": {
+    "space-before-blocks": "off",
+    "no-multi-spaces": "off",
+    "space-before-function-paren": "off",
+    "no-whitespace-before-property": "off",
+    "space-infix-ops": "off",
+    "arrow-spacing": "off",
+    "space-in-parens": "off",
+    "block-spacing": "off",
+    "no-mixed-spaces-and-tabs": "off",
+    "no-irregular-whitespace": "off",
+    "space-unary-ops": "off",
+    "no-spaced-func": "off",
+    "react/react-in-jsx-scope": "off",
+    "camelcase": "error",
+    "spaced-comment": "error",
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "no-trailing-spaces": 0,
+    "no-duplicate-imports": "error"
+  }
+}
