@@ -12,6 +12,7 @@ module.exports = {
 
         new MiniCssExtractPlugin(),
         new webpack.HotModuleReplacementPlugin(),
+
     ],
     entry: {
         main: "./src/index.tsx",
@@ -57,6 +58,14 @@ module.exports = {
                     },
                 }, "sass-loader"],
             },
+            {
+                test: /\.(png|jpg|jpeg|gif)$/i,
+                type: "asset/resource",
+            },
+            {
+                test: /\.svg$/,
+                use: ['@svgr/webpack'],
+            }
 
         ]
     }

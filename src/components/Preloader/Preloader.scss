@@ -1,0 +1,29 @@
+.container-preloader{
+  width: 100%;
+  height: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.preloader{
+  width: 48px;
+  height: 48px;
+  border-top: 8px solid white;
+  border-right: 8px solid #00BDD3;
+  border-left: 8px solid #00BDD3;
+  border-bottom: 8px solid #00BDD3;
+  border-radius: 50%;
+  animation: spin 1.5s linear infinite;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.preloader-large{
+  width: 90px;
+  height: 90px;
+}
+.preloader-normal{
+  width: 48px;
+  height: 48px;
+}

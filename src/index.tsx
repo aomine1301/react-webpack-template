@@ -4,5 +4,5 @@ import { createRoot } from 'react-dom/client'
 
 const rootNode = document.getElementById('app')
 if (rootNode) {
-  createRoot(rootNode).render(<App title='Hello world' />)
+  createRoot(rootNode).render(<App />)
 }
