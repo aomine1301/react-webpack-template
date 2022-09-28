@@ -30,6 +30,16 @@ export type Inputs = {
   position_id: number
   photo: File
 }
+export interface ResponseCreateUser {
+  success: boolean
+  user_id?: number
+  message: string
+  fails?: any
+}
+export interface Pagination {
+  page: number
+  count: number
+}
 export const getUsers = async (page = 1, count = 5): Promise<ResponseUsers> => {
   let users: ResponseUsers = {} as ResponseUsers
   await fetch(`https://frontend-test-assignment-api.abz.agency/api/v1/users?page=${page}&count=${count}`)
@@ -41,34 +51,25 @@ export const getUsers = async (page = 1, count = 5): Promise<ResponseUsers> => {
     })
   return users
 }
-export const createUser = async (formData: any) => {
-  let response = {}
+export const createUser = async (formData: any): Promise<ResponseCreateUser> => {
+  let response: ResponseCreateUser = {} as ResponseCreateUser
   const token = localStorage.getItem('token')
   const data = new FormData()
-  data.append('name', formData.name)
-  data.append('email', formData.email)
-  data.append('phone', formData.phone)
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  data.append('position_id', Number(formData.position_id))
-  data.append('photo', formData.photo)
-  console.log('data', formData)
+
+  for (const name in formData) {
+    data.append(name, formData[name])
+  }
+
   await fetch('https://frontend-test-assignment-api.abz.agency/api/v1/users', {
     method: 'POST',
-    body: JSON.stringify({ ...formData }),
+    body: data,
     headers: { Token: token },
   })
-    .then(function (response) {
+    .then<ResponseCreateUser>(function (response) {
       return response.json()
     })
     .then(function (data) {
-      console.log(data)
       response = data
-      if (data.success) {
-        console.log('succees')
-      } else {
-        console.log('not successs')
-      }
     })
     .catch(function (error) {
       console.log(error)

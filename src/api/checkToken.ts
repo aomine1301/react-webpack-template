@@ -1,4 +1,4 @@
-interface Response {
+export interface TokenResponseI {
   success: boolean
   token: string
 }
@@ -9,7 +9,7 @@ export const checkToken = async (): Promise<string> => {
     .then(function (response) {
       return response.json()
     })
-    .then(function (data: Response) {
+    .then(function (data: TokenResponseI) {
       if (data.success) {
         token = data.token
       }

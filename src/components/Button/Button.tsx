@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, memo } from 'react'
 import classNames from 'classnames/bind'
 import style from './Button.scss'
 
@@ -22,4 +22,4 @@ const Button: FC<Props> = ({ text, customStyleType = 'normal', bigButton, custom
   )
 }
 
-export default Button
+export default memo(Button)
