@@ -42,6 +42,7 @@
     "react/react-in-jsx-scope": "off",
     "camelcase": "error",
     "spaced-comment": "error",
+    "no-control-regex": "off",
     "quotes": [
       "error",
       "single"

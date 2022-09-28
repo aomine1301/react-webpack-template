@@ -1,0 +1,34 @@
+.cart-container {
+  padding: 20px;
+  background: #FFFFFF;
+  border-radius: 10px;
+  margin: 0 16px 20px 16px;
+}
+
+.cart-image {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+.cart-image-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.cart-information {
+  width: 288px;
+  height: 26px;
+  font-family: 'Nunito', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.87);
+}
+.cart-second{
+  margin-top: 20px;
+}
+

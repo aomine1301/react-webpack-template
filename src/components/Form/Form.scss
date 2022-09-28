@@ -1,0 +1,70 @@
+.form-container {
+  margin-top: 50px;
+  padding: 0 16px;
+}
+
+.form-input-container {
+  position: relative;
+}
+
+.form-input-error {
+  position: absolute;
+  top: 54px;
+  left: 11px;
+  font-family: 'Asap', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  color: #CB3D40;
+}
+
+.form-input-helper-text {
+  position: absolute;
+  top: 54px;
+  left: 11px;
+  font-family: 'Nunito', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  color: #7E7E7E
+}
+
+.form-checkbox-container {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.form-input-checkbox-error{
+  position: absolute;
+  top: 135px;
+  left: 15px;
+  font-family: 'Asap', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  color: #CB3D40;
+}
+.positions-label {
+  font-family: 'Nunito', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: rgba(0, 0, 0, 0.87);
+  margin-bottom: 11px;
+}
+
+.form-submit-button {
+  display: flex;
+  justify-content: center;
+}
+.from-upload-input{
+  position: relative;
+  margin-top: 40px;
+  margin-bottom: 50px;
+}

@@ -2,6 +2,7 @@ body {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  background: #E5E5E5;
 }
 
 .container {
@@ -62,3 +63,15 @@ body {
   text-align: center;
   color: #FFFFFF;
 }
+.carts-section-container{
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.cart-section-button-container{
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+

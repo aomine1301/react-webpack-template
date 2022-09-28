@@ -9,8 +9,13 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 26px;
+  &:hover{
+    background: #FFE302;
+  }
 }
-
+.big{
+  width: 120px;
+}
 
 .normal-button {
   background: #F4E041;

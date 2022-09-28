@@ -1,0 +1,35 @@
+.upload-input-container {
+  display: flex;
+}
+
+.upload-input {
+
+}
+
+.upload-input-label {
+  display: block;
+  font-family: 'Nunito',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  border: 1px solid rgba(0, 0, 0, 0.87);
+  border-radius: 4px 0 0 4px;
+  text-align: center;
+  text-align-all: center;
+  padding: 13px;
+}
+.upload-input-second-half{
+  display: block;
+  font-family: 'Nunito',sans-serif;
+  width: 100%;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  //background: #F8F8F8;
+  border: 1px solid #D0CFCF;
+  border-radius: 4px;
+  text-align: start;
+  padding: 13px;
+}

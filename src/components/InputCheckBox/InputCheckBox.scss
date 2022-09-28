@@ -1,0 +1,60 @@
+//
+.input-checkbox-container {
+  margin-bottom: 7px;
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+  &:first-child {
+    margin-top: 11px;
+  }
+}
+//
+.input-checkbox-label {
+  font-family: 'Nunito', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: rgba(0, 0, 0, 0.87);
+  margin-left: 2px;
+}
+input[type='radio'],
+label {
+  cursor: pointer;
+}
+
+input[type='radio'] {
+  position: relative;
+  height: 22px;
+  width: 22px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+}
+
+input[type='radio']::before {
+  content: '';
+  position: absolute;
+  top: 43%;
+  left: 22%;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border: 2px solid #00BDD3;
+}
+
+input[type='radio']:checked::after {
+  content: '';
+  position: absolute;
+  top: 43%;
+  left: 22%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #00BDD3;
+  transform: translate(-50%, -50%);
+  visibility: visible;
+}
