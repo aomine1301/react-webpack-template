@@ -19,7 +19,7 @@
 
 .cart-information {
   width: 288px;
-  height: 26px;
+  height: auto;
   font-family: 'Nunito', sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -27,8 +27,18 @@
   line-height: 26px;
   text-align: center;
   color: rgba(0, 0, 0, 0.87);
+  word-wrap: break-word;
 }
-.cart-second{
+
+.cart-second {
   margin-top: 20px;
 }
 
+.tooltip{
+  min-width: 100px;
+  background: #252424;
+  text-align: center;
+  color: white;
+  border-radius: 40px;
+  padding:  0px 6px;
+}

@@ -1,17 +1,27 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { Pagination, ResponseUsers } from '../../api/Users'
+import { Pagination, ResponseCreateUser, ResponseUsers } from '../../api/Users'
 
-// Define a service using a base URL and expected endpoints
+const token = localStorage.getItem('token')
 export const usersApi = createApi({
   reducerPath: 'usersApi',
+  tagTypes: ['Users'],
   baseQuery: fetchBaseQuery({ baseUrl: 'https://frontend-test-assignment-api.abz.agency/api/v1/users' }),
   endpoints: (builder) => ({
     getUsers: builder.query<ResponseUsers, Pagination>({
-      query: (pagination: Pagination) => `?page=${pagination.page}&count=${pagination.count}`,
+      query: (pagination = { page: 1, count: 6 }) => `?page=${pagination.page}&count=${pagination.count}`,
+      providesTags: (result: ResponseUsers) =>
+        result ? [...result.users.map(({ id }) => ({ type: 'Users' as const, id })), { type: 'Users', id: 'LIST' }] : [{ type: 'Users', id: 'LIST' }],
+    }),
+    createUser: builder.mutation<ResponseCreateUser, FormData>({
+      query: (data) => ({
+        url: '',
+        method: 'POST',
+        body: data,
+        headers: { Token: token },
+      }),
+      invalidatesTags: [{ type: 'Users', id: 'LIST' }],
     }),
   }),
 })
 
-// Export hooks for usage in functional components, which are
-// auto-generated based on the defined endpoints
-export const { useGetUsersQuery } = usersApi
+export const { useGetUsersQuery, useCreateUserMutation } = usersApi

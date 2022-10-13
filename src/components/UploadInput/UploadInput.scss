@@ -18,6 +18,7 @@
   text-align: center;
   text-align-all: center;
   padding: 13px;
+  height: 26px;
 }
 .upload-input-second-half{
   display: block;
@@ -26,10 +27,12 @@
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
-  line-height: 26px;
+  line-height: 36px;
   //background: #F8F8F8;
   border: 1px solid #D0CFCF;
   border-radius: 4px;
   text-align: start;
-  padding: 13px;
+  padding: 8px 8px 18px 8px;
+  height: 26px;
+  overflow: hidden;
 }

@@ -1,4 +1,4 @@
-import React, { Dispatch, FC, useState } from 'react'
+import React, { FC } from 'react'
 import Input from '../Input/Input'
 import Button from '../Button/Button'
 import classNames from 'classnames/bind'
@@ -7,8 +7,10 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 import { PositionInterface } from '../../api/getPositions'
 import InputCheckBox from '../InputCheckBox/InputCheckBox'
 import UploadInput from '../UploadInput/UploadInput'
-import { createUser, getUsers, Inputs, ResponseUsers } from '../../api/Users'
+import { Inputs } from '../../api/Users'
 import SuccessImg from '../../assets/success-image.svg'
+import { useCreateUserMutation } from '../../state/query/queryUsers'
+import Tooltip from '../Tooltip/Toolltip'
 
 const cx = classNames.bind(style)
 
@@ -17,7 +19,7 @@ interface Props {
 }
 
 const Form: FC<Props> = ({ positions }) => {
-  const [addUserSuccess, setAddUserSuccess] = useState<boolean>(false)
+  const [createUser, { isSuccess }] = useCreateUserMutation()
 
   const {
     register,
@@ -25,18 +27,17 @@ const Form: FC<Props> = ({ positions }) => {
     setValue,
     formState: { errors },
   } = useForm<Inputs>()
-  const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    await createUser(data).then((res) => {
-      if (res.success) {
-        setAddUserSuccess(true)
-        getUsers(1, 6)
-      }
-    })
-  }
+  const onSubmit: SubmitHandler<Inputs> = async (formData) => {
+    const data = new FormData()
 
+    for (const name in formData) {
+      data.append(name, formData[name])
+    }
+    createUser(data)
+  }
   return (
     <>
-      {addUserSuccess ? (
+      {isSuccess ? (
         <SuccessImg />
       ) : (
         <form className={cx('form-container')} onSubmit={handleSubmit(onSubmit)}>
@@ -52,6 +53,9 @@ const Form: FC<Props> = ({ positions }) => {
             {errors.name && <div className={cx('form-input-error')}>{errors?.name?.message}</div>}
           </div>
           <div className={cx('form-input-container')}>
+            <Tooltip>
+              <div>11212</div>
+            </Tooltip>
             <Input
               label='Email'
               register={register('email', {

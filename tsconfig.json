@@ -12,7 +12,7 @@
     "sourceMap": true,
     /* Strict Type-Checking Options */
     "strict": true,
-    "noImplicitAny": true,
+    "noImplicitAny": false,
     "strictNullChecks": false,
 
     /* Module Resolution Options */

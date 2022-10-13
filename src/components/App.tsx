@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import style from './style.scss'
 import classNames from 'classnames/bind'
 import Button from './Button/Button'
@@ -14,6 +14,7 @@ import { useGetUsersQuery } from '../state/query/queryUsers'
 import { useGetTokenQuery } from '../state/query/queryToken'
 import { useGetPositionsQuery } from '../state/query/queryPositions'
 import { setUsers } from '../state/slices/users'
+import ReactTooltip from 'react-tooltip'
 
 const cx = classNames.bind(style)
 
@@ -24,16 +25,17 @@ const App = () => {
   const { data: users, isSuccess: isSuccessUsers } = useGetUsersQuery(pagination)
   const { isSuccess: isSuccessToken } = useGetTokenQuery()
   const { data: dataPositions, isSuccess: isSuccessPositions } = useGetPositionsQuery()
-  const increasePageHandler = () => {
+  const increasePageHandler = useCallback(() => {
     if (usersSlice?.total_pages === usersSlice?.page) {
-      return setPagination((prevState) => ({ ...prevState, page: prevState.page + 6 }))
+      return setPagination((prevState) => ({ ...prevState, page: 6, count: 1 }))
     }
-  }
+    setPagination((prevState) => ({ ...prevState, count: prevState.count + 6 }))
+  }, [usersSlice?.page, usersSlice?.total_pages])
 
   // useEffect(() => {}, [pagination])
   useEffect(() => {
     dispatch(setUsers(users))
-  }, [dispatch, users])
+  }, [dispatch, users, pagination])
   console.log('render')
   return (
     <>
@@ -52,12 +54,14 @@ const App = () => {
             <div className={cx('title')}>Test assignment for front-end developer</div>
             <div className={cx('subtitle')}>
               What defines a good front-end developer is one that has skilled knowledge of HTML, CSS, JS with a vast understanding of User design
+              {/* eslint-disable-next-line react/no-unescaped-entities */}
               thinking as they'll be building web interfaces with accessibility in mind. They should also be excited to learn, as the world of
               Front-End Development keeps evolving.
             </div>
             <Button text='Sign up' />
           </div>
           <SectionTitle text='Working with GET request' />
+
           <div className={cx('carts-section-container')}>
             {usersSlice?.users?.map((user) => {
               return <Card key={user.id} type='normal' user={user} />

@@ -2,7 +2,7 @@ import React, { FC, useState } from 'react'
 import styles from './UploadInput.scss'
 import classNames from 'classnames/bind'
 import { UseFormSetValue } from 'react-hook-form'
-import { Inputs } from '../Form/Form'
+import { Inputs } from '../../api/Users'
 
 const cx = classNames.bind(styles)
 
